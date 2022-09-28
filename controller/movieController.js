@@ -1,6 +1,5 @@
 const movies=require('../model/movies')
 
-
 exports.add_Movies=async(req,res)=>{
     try{
         let { movie_Name, genre_Name} =req.body;
@@ -15,4 +14,11 @@ exports.add_Movies=async(req,res)=>{
         res.json(err,'error happened while addding theatre')
     }
   
+}
+exports.display_movies=async(req,res)=>{
+    
+  let all_movies= await movies.find().sort({movie:1})
+   
+  
+   res.status(200).json(all_movies)
 }
