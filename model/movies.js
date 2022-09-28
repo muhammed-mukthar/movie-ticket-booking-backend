@@ -5,7 +5,7 @@ const movieSchema=mongoose.Schema({
         type:String,
         required:true
     },
-    genres:{
+    genre:{
         type:String,
         required:true
     },

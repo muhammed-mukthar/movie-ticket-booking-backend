@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const userroute = require("./routes/user");
-const adminroute = require("./routes/admin");
+const adminroute=require('./routes/admin')
 const mongoose = require("mongoose");
 const session = require("express-session");
 var cookieParser = require("cookie-parser");
