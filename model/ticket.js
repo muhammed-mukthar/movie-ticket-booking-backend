@@ -13,6 +13,10 @@ const ticketSchema=mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'movies'
     },
+    Date:{
+        type:String,
+        required:true
+    },
     time:{
         type:String,
         required:true
@@ -23,4 +27,4 @@ const ticketSchema=mongoose.Schema({
     }
      
 })
-const ticket=mongoose.model('Book_tickets',ticketSchema)
+module.exports = mongoose.model('Book_tickets',ticketSchema)

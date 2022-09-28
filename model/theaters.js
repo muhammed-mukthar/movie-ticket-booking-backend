@@ -15,4 +15,4 @@ const theatersSchema=mongoose.Schema({
     }
      
 })
-const movies=mongoose.model('theaters',theatersSchema)
+module.exports=mongoose.model('theaters',theatersSchema)

@@ -10,4 +10,4 @@ const movieSchema=mongoose.Schema({
         required:true
     },
 })
-const movies=mongoose.model('movies',movieSchema)
+module.exports=mongoose.model('movies',movieSchema)

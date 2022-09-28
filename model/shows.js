@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 
 const showSchema=mongoose.Schema({
     Date:{
-        type:Date,
+        type:String,
         required:true
     },
     time:{
@@ -15,4 +15,4 @@ const showSchema=mongoose.Schema({
     }
      
 })
-const movies=mongoose.model('shows',showSchema)
+module.exports=mongoose.model('shows',showSchema)

@@ -13,9 +13,24 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const port = process.env.PORT || 3000;
+
+mongoose.connect(process.env.DB_CONNECT, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("database connected succesfully"))
+.catch((err) => console.log(err));
+
+
+
+
+const port = process.env.PORT || 4000;
 
 const oneDay = 1000 * 60 * 60 * 24;
+
+
+
+
 
 app.use(session({ secret: "secret", saveUninitialized: true, resave: false ,cookie:{maxAge:oneDay}}));
 app.use(cors({
@@ -31,37 +46,34 @@ app.use(cookieParser());
 
 
 
-app.use("/", userroute);
-app.use("/admin", adminroute);
+app.use("/api/users", userroute);
+app.use("/api/admin", adminroute);
 
 
-mongoose.connect(process.env.DB_CONNECT, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("database connected succesfully"))
-  .catch((err) => console.log(err));
 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
-  // render the error page
-  res.status(err.status || 500);
-  let adminlog=req.session.adminlog;
-  let userlog= req.session.userlogin
-  res.render('include/404',{adminlog,userlog})
+// // error handler
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+//   // render the error page
   
-});
+//   res.status(err.status || 500);
+// res.json({
+//   message: err.message,
+//   error: err
+// });
+
+// });
 
 
 
-app.listen(port, () => console.log("server hosted in localhost:8000"));
+app.listen(port, () => console.log("server hosted in localhost:4000"));
