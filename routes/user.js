@@ -19,5 +19,6 @@ router.get('/list-theatre',theatereController.display_theatre)
 
 router.get('/reschedule-booking/:id',ticketController.getalternateshows)
 
+// router.post('/reschedule-booking/:id',ticketController.reschedule_Booking)
 
 module.exports = router;

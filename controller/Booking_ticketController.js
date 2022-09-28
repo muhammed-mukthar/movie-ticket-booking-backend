@@ -52,8 +52,34 @@ exports.getalternateshows=async(req,res)=>{
         res.status(500).json(500)
     }
 
-exports.reschedule_booking({
+// exports.reschedule_Booking= async(req,res)=>{
+//     try{
+//         let rescheduling_ticketId=req.params.id
 
-})   
+//        let  {showId,seatsbooked}=req.body
 
+//        let rescheduling_ticket=await ticket.findOne({_id:ObjectId(rescheduling_ticketId)})
+//        var {seats,price}=rescheduling_ticket
+
+//        let selectedshow=await shows.findOne({_id:ObjectId(showId)})
+
+
+//        let { ticketPrice,showseats}=selectedshow
+       
+//        if(showseats>seats && seats*ticketPrice<= seats*price){
+//         await shows.updateOne({showId})
+//        }
+
+
+
+      
+
+//        if()
+       
+
+
+//     }catch(err){
+//         res.status(500).json(err)
+//     }
+// }
 }
