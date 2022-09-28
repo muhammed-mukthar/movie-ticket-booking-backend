@@ -2,9 +2,11 @@
 const ticket=require('../model/ticket')
 const shows=require('../model/shows')
 var ObjectId = require("mongoose").Types.ObjectId;
+
 exports.book_Ticket=async(req,res)=>{
     try{
-        let { inserted_theaterId, inserted_showId,inserted_movieId,inserted_seat} =req.body;
+        let {  inserted_showId,inserted_seat} =req.body;
+        console.log(inserted_showId);
         let show_details=await shows.findOne({_id:ObjectId(inserted_showId)}) 
       
         if(show_details){
@@ -13,9 +15,7 @@ exports.book_Ticket=async(req,res)=>{
                 res.json('invalid number of seats')
             }else{
                 let new_ticket=new ticket({
-                    theaterId:ObjectId(inserted_theaterId),
                     showId:ObjectId(inserted_showId),
-                    movieId:ObjectId(inserted_movieId),
                     seats:inserted_seat
                 })
                 await new_ticket.save()
