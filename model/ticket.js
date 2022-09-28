@@ -13,14 +13,6 @@ const ticketSchema=mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'movies'
     },
-    Date:{
-        type:String,
-        required:true
-    },
-    time:{
-        type:String,
-        required:true
-    },
     seats:{
         type:Number,
         required:true

@@ -12,6 +12,13 @@ const showSchema=mongoose.Schema({
     movieId:{ 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'movies'
+    },theatreId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'theaters'
+    },
+    seats:{
+        type:Number,
+        required:true
     }   
 })
 module.exports=mongoose.model('shows',showSchema)
