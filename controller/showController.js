@@ -5,13 +5,14 @@ var ObjectId = require("mongoose").Types.ObjectId;
 
 exports.add_Show=async(req,res)=>{
     try{
-        let { inserted_Date, inserted_time,inserted_movieId ,seats_available,inserted_theatreId} =req.body;
+        let { inserted_Date, inserted_time,inserted_movieId ,seats_available,inserted_theatreId,inserted_price} =req.body;
         let new_show=new shows({
             Date:inserted_Date,
             time:inserted_time,
             seats:seats_available,
            movieId:ObjectId(inserted_movieId),
-           theatreId:ObjectId(inserted_theatreId)     
+           theatreId:ObjectId(inserted_theatreId),
+           ticketPrice:inserted_price     
         })
         await new_show.save()
         res.json('New show added ')

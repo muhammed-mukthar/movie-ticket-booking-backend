@@ -32,3 +32,5 @@ exports.display_movies=async(req,res)=>{
   
    res.status(200).json(all_movies)
 }
+
+exports.d

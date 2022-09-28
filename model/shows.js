@@ -19,6 +19,9 @@ const showSchema=mongoose.Schema({
     seats:{
         type:Number,
         required:true
+    },ticketPrice:{
+        type:Number,
+        required:true
     }   
 })
 module.exports=mongoose.model('shows',showSchema)
