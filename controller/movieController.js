@@ -15,9 +15,19 @@ exports.add_Movies=async(req,res)=>{
     }
   
 }
+//passing query parameter and filtering according though movie name it out 
 exports.display_movies=async(req,res)=>{
-    
-  let all_movies= await movies.find().sort({movie:1})
+
+    let search='';
+    if(req.query.search){
+      search=req.query.search
+    }
+    console.log(search);
+  let all_movies= await movies.find({$or:[
+    {
+    movie:{$regex:'.*'+search+'.*',$options:'i'} 
+    }
+  ]})
    
   
    res.status(200).json(all_movies)
